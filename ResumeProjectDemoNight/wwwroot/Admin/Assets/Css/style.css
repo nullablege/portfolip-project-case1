@@ -1,0 +1,30 @@
+body {
+    font-family: 'Rubik', sans-serif;
+}
+.sidebar-active {
+    color: #F9D74C !important;
+}
+.custom-shadow {
+    box-shadow: 0 5px 20px 0 rgba(69, 67, 96, 0.1);
+}
+
+.transition-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.sidebar-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}

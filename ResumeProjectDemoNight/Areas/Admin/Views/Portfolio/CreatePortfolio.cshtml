@@ -1,0 +1,50 @@
+﻿@model ResumeProjectDemoNight.Entities.Portfolio
+
+@{
+    ViewData["Title"] = "CreatePortfolio";
+}
+
+<div class="max-w-4xl mx-auto">
+    <div class="bg-white dark:bg-sidebar-dark rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
+        <form method="post" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Proje Başlığı</label>
+                <input type="text" asp-for="ProjectTitle"
+                       class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                       placeholder="Örn: E-Ticaret Web Sitesi" required />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Görsel URL</label>
+                <input type="text" asp-for="ImageUrl"
+                       class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                       placeholder="https://..." />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Durum</label>
+                <div class="flex items-center gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" asp-for="Status" value="true" class="w-4 h-4 text-primary focus:ring-primary" checked />
+                        <span class="text-sm text-background-dark dark:text-white">Aktif</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" asp-for="Status" value="false" class="w-4 h-4 text-primary focus:ring-primary" />
+                        <span class="text-sm text-background-dark dark:text-white">Pasif</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex gap-4 pt-4">
+                <button type="submit"
+                        class="flex-1 bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all">
+                    Kaydet
+                </button>
+                <a asp-area="Admin" asp-controller="Portfolio" asp-action="PortfolioList"
+                   class="flex-1 text-center bg-slate-200 dark:bg-slate-700 text-background-dark dark:text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-all">
+                    İptal
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

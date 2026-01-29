@@ -1,0 +1,122 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Panel - Portfolio Yönetimi</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Admin/Assets/Css/style.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="~/Admin/Assets/Js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark transition-colors duration-300">
+    <div id="sidebar-overlay" class="sidebar-overlay lg:hidden"></div>
+
+    <div class="flex min-h-screen">
+        <aside id="sidebar"
+            class="w-64 bg-sidebar-dark text-white fixed h-full z-50 flex flex-col justify-between py-8 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-xl">
+            <div>
+                <div class="px-8 mb-12">
+                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="flex items-center">
+                        <img src="~/Admin/Assets/Images/logo.svg" alt="Admin Panel" class="h-8 mr-2" />
+                    </a>
+                </div>
+                <nav class="space-y-1">
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                        <span class="material-icons-outlined mr-4">grid_view</span>
+                        <span class="font-medium">Dashboard</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="About" asp-action="Index">
+                        <span class="material-icons-outlined mr-4">person</span>
+                        <span class="font-medium">Hakkımda</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="Service" asp-action="Index">
+                        <span class="material-icons-outlined mr-4">layers</span>
+                        <span class="font-medium">Hizmetler</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="Experience" asp-action="ExperienceList">
+                        <span class="material-icons-outlined mr-4">school</span>
+                        <span class="font-medium">Deneyimler</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="Portfolio" asp-action="PortfolioList">
+                        <span class="material-icons-outlined mr-4">work_outline</span>
+                        <span class="font-medium">Projeler</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="Testimonial" asp-action="Index">
+                        <span class="material-icons-outlined mr-4">reviews</span>
+                        <span class="font-medium">Referanslar</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="Message" asp-action="Index">
+                        <span class="material-icons-outlined mr-4">chat</span>
+                        <span class="font-medium">Mesajlar</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="SocialMedia" asp-action="Index">
+                        <span class="material-icons-outlined mr-4">share</span>
+                        <span class="font-medium">Sosyal Medya</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="Category" asp-action="Index">
+                        <span class="material-icons-outlined mr-4">category</span>
+                        <span class="font-medium">Kategoriler</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="Stat" asp-action="Index">
+                        <span class="material-icons-outlined mr-4">analytics</span>
+                        <span class="font-medium">İstatistikler</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        asp-area="Admin" asp-controller="ProfileTitle" asp-action="Update">
+                        <span class="material-icons-outlined mr-4">badge</span>
+                        <span class="font-medium">Profil Başlığı</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="px-8 text-xs text-white/40">
+                © 2024 Portfolio Admin.
+            </div>
+        </aside>
+
+        <main class="flex-1 w-full lg:ml-64 p-4 md:p-8 lg:p-12 transition-all duration-300">
+            <header class="flex justify-between items-center mb-10">
+                <div class="flex items-center">
+                    <button id="sidebar-toggle"
+                        class="lg:hidden p-2 mr-4 text-slate-500 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                        <span class="material-icons-outlined text-3xl">menu</span>
+                    </button>
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-background-dark dark:text-white">@ViewBag.Title</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mt-1 text-sm md:text-base">@ViewBag.Description</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 md:space-x-6">
+                    <button
+                        class="p-2 rounded-full bg-white dark:bg-sidebar-dark custom-shadow text-slate-600 dark:text-white hover:text-primary transition-all"
+                        onclick="document.documentElement.classList.toggle('dark')">
+                        <span class="material-icons-outlined">dark_mode</span>
+                    </button>
+                </div>
+            </header>
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/Admin/Assets/Js/admin.js"></script>
+</body>
+</html>

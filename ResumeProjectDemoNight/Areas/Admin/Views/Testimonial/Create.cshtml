@@ -1,0 +1,48 @@
+@model ResumeProjectDemoNight.Entities.Testimonial
+
+<div class="max-w-2xl mx-auto">
+    <div class="bg-white dark:bg-sidebar-dark rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
+        <form method="post" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Ad Soyad</label>
+                    <input type="text" asp-for="NameSurname"
+                           class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                           placeholder="Örn: Ahmet Yılmaz" required />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Ünvan</label>
+                    <input type="text" asp-for="Title"
+                           class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                           placeholder="Örn: CEO, ABC Ltd." required />
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Görsel URL</label>
+                <input type="text" asp-for="ImageUrl"
+                       class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                       placeholder="https://..." />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Yorum</label>
+                <textarea asp-for="Comment" rows="5"
+                          class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white resize-none"
+                          placeholder="Müşteri yorumunu buraya yazın..." required></textarea>
+            </div>
+
+            <div class="flex gap-4 pt-4">
+                <button type="submit"
+                        class="flex-1 bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all">
+                    Kaydet
+                </button>
+                <a asp-action="Index"
+                   class="flex-1 text-center bg-slate-200 dark:bg-slate-700 text-background-dark dark:text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-all">
+                    İptal
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Bolby Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+
+    <link rel="stylesheet" href="Assets/Css/style.css">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <script src="Assets/Js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark transition-colors duration-300">
+
+    <div id="sidebar-overlay" class="sidebar-overlay lg:hidden"></div>
+
+    <div class="flex min-h-screen">
+        <aside id="sidebar"
+            class="w-64 bg-sidebar-dark text-white fixed h-full z-50 flex flex-col justify-between py-8 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-xl">
+            <div>
+                <div class="px-8 mb-12">
+                    <a href="index.html" class="flex items-center">
+                        <img src="Assets/Images/logo.svg" alt="Bolby" class="h-8 mr-2" />
+                    </a>
+                </div>
+                <nav class="space-y-1">
+                    <a class="flex items-center px-8 py-3 text-white sidebar-active hover:text-card-yellow transition-colors group"
+                        href="index.html">
+                        <span class="material-icons-outlined mr-4">grid_view</span>
+                        <span class="font-medium">Dashboard</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="about.html">
+                        <span class="material-icons-outlined mr-4">person</span>
+                        <span class="font-medium">About</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="services.html">
+                        <span class="material-icons-outlined mr-4">layers</span>
+                        <span class="font-medium">Services</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="experience.html">
+                        <span class="material-icons-outlined mr-4">school</span>
+                        <span class="font-medium">Experience</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="works.html">
+                        <span class="material-icons-outlined mr-4">work_outline</span>
+                        <span class="font-medium">Works</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="contact.html">
+                        <span class="material-icons-outlined mr-4">chat</span>
+                        <span class="font-medium">Contact</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="px-8 text-xs text-white/40">
+                © 2023 Bolby Template.
+            </div>
+        </aside>
+
+        <main class="flex-1 w-full lg:ml-64 p-4 md:p-8 lg:p-12 transition-all duration-300">
+            <header class="flex justify-between items-center mb-10">
+                <div class="flex items-center">
+                    <button id="sidebar-toggle"
+                        class="lg:hidden p-2 mr-4 text-slate-500 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                        <span class="material-icons-outlined text-3xl">menu</span>
+                    </button>
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-background-dark dark:text-white">Welcome back,
+                            Bolby!</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mt-1 text-sm md:text-base">Here is what's happening
+                            with your portfolio today.</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 md:space-x-6">
+                    <button
+                        class="p-2 rounded-full bg-white dark:bg-sidebar-dark custom-shadow text-slate-600 dark:text-white hover:text-primary transition-all"
+                        onclick="document.documentElement.classList.toggle('dark')">
+                        <span class="material-icons-outlined">dark_mode</span>
+                    </button>
+                    <div class="flex items-center space-x-3 cursor-pointer group">
+                        <div class="text-right hidden md:block">
+                            <p
+                                class="text-sm font-bold text-background-dark dark:text-white group-hover:text-primary transition-colors">
+                                Bolby Doe</p>
+                            <p class="text-xs text-slate-400">Administrator</p>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-card-yellow flex items-center justify-center overflow-hidden border-2 border-white dark:border-sidebar-dark">
+                            <img alt="Admin Profile"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt36WUoHekJNmBxVJst6_aiqVGU6SzV62pGIpitsa2hgl9CdseI8fhxb438nEuoww222kkSo9ehX7XAlSJ234jBQ6sUIxWwhCUKZJKrzTnJAhAcLuHC_7nJNnxJscOy6lMZkQhscrIogsIWnpoXpdElBYBfgcsC7r44jJ74yhMQl1mnphoXiRMk60bOFbec9-IOFbTeRIb2opFS39hIwCiISpUFkHi0deRBRMWCIWbTE-Mw1Wl4pgubnPWeFW_7GcXWD_KeSae3ZEK" />
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-10">
+                <div class="bg-card-blue p-8 rounded-DEFAULT text-white custom-shadow relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="material-icons-outlined text-4xl opacity-80">visibility</span>
+                            <span class="text-xs font-bold px-2 py-1 bg-white/20 rounded-full">+12%</span>
+                        </div>
+                        <h3 class="text-4xl font-bold mb-1">1,248</h3>
+                        <p class="text-white/80 font-medium">Total Visitors</p>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -right-6 w-24 h-24 bg-white/10 rounded-full transition-transform group-hover:scale-150 duration-500">
+                    </div>
+                </div>
+
+                <div
+                    class="bg-card-yellow p-8 rounded-DEFAULT text-background-dark custom-shadow relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="material-icons-outlined text-4xl opacity-80">rocket_launch</span>
+                            <span class="text-xs font-bold px-2 py-1 bg-black/10 rounded-full">4 Active</span>
+                        </div>
+                        <h3 class="text-4xl font-bold mb-1">24</h3>
+                        <p class="font-medium opacity-80">Ongoing Projects</p>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -right-6 w-24 h-24 bg-black/5 rounded-full transition-transform group-hover:scale-150 duration-500">
+                    </div>
+                </div>
+                <div class="bg-card-pink p-8 rounded-DEFAULT text-white custom-shadow relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="material-icons-outlined text-4xl opacity-80">mail_outline</span>
+                            <span class="text-xs font-bold px-2 py-1 bg-white/20 rounded-full">New</span>
+                        </div>
+                        <h3 class="text-4xl font-bold mb-1">08</h3>
+                        <p class="text-white/80 font-medium">Unread Messages</p>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -right-6 w-24 h-24 bg-white/10 rounded-full transition-transform group-hover:scale-150 duration-500">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="lg:col-span-2 bg-white dark:bg-sidebar-dark p-8 rounded-DEFAULT custom-shadow">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                        <h4 class="text-xl font-bold text-background-dark dark:text-white">Profile Views</h4>
+                        <select
+                            class="text-sm border-none bg-slate-100 dark:bg-background-dark dark:text-white rounded-lg focus:ring-0 w-full md:w-auto">
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                        </select>
+                    </div>
+                    <div class="h-64 flex items-end justify-between space-x-2 px-2">
+                        <div class="flex-1 bg-card-blue/20 dark:bg-card-blue/10 rounded-t-lg h-3/4 relative group">
+                            <div
+                                class="absolute inset-x-0 bottom-0 bg-card-blue rounded-t-lg h-1/2 group-hover:h-3/4 transition-all duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-1 bg-card-blue/20 dark:bg-card-blue/10 rounded-t-lg h-1/2 relative group">
+                            <div
+                                class="absolute inset-x-0 bottom-0 bg-card-blue rounded-t-lg h-2/3 group-hover:h-5/6 transition-all duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-1 bg-card-blue/20 dark:bg-card-blue/10 rounded-t-lg h-5/6 relative group">
+                            <div
+                                class="absolute inset-x-0 bottom-0 bg-card-blue rounded-t-lg h-4/5 group-hover:h-full transition-all duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-1 bg-card-blue/20 dark:bg-card-blue/10 rounded-t-lg h-2/3 relative group">
+                            <div
+                                class="absolute inset-x-0 bottom-0 bg-card-blue rounded-t-lg h-1/3 group-hover:h-1/2 transition-all duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-1 bg-card-blue/20 dark:bg-card-blue/10 rounded-t-lg h-4/5 relative group">
+                            <div
+                                class="absolute inset-x-0 bottom-0 bg-card-blue rounded-t-lg h-3/5 group-hover:h-4/5 transition-all duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-1 bg-card-blue/20 dark:bg-card-blue/10 rounded-t-lg h-3/4 relative group">
+                            <div
+                                class="absolute inset-x-0 bottom-0 bg-card-blue rounded-t-lg h-1/2 group-hover:h-2/3 transition-all duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-1 bg-card-blue/20 dark:bg-card-blue/10 rounded-t-lg h-full relative group">
+                            <div
+                                class="absolute inset-x-0 bottom-0 bg-card-blue rounded-t-lg h-4/5 group-hover:h-full transition-all duration-300">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4 text-xs text-slate-400 font-medium">
+                        <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-sidebar-dark p-8 rounded-DEFAULT custom-shadow">
+                    <h4 class="text-xl font-bold text-background-dark dark:text-white mb-6">Recent Works</h4>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-card-blue/10 rounded-xl flex items-center justify-center mr-4">
+                                <span class="material-icons-outlined text-card-blue">palette</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-bold text-background-dark dark:text-white">Mobile App UI</p>
+                                <p class="text-xs text-slate-400">2 hours ago</p>
+                            </div>
+                            <span class="text-xs font-bold text-primary">Live</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-card-yellow/10 rounded-xl flex items-center justify-center mr-4">
+                                <span class="material-icons-outlined text-card-yellow">code</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-bold text-background-dark dark:text-white">Portfolio Update</p>
+                                <p class="text-xs text-slate-400">Yesterday</p>
+                            </div>
+                            <span class="text-xs font-bold text-slate-400">Draft</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-card-pink/10 rounded-xl flex items-center justify-center mr-4">
+                                <span class="material-icons-outlined text-card-pink">photo_camera</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-bold text-background-dark dark:text-white">Studio Shoot</p>
+                                <p class="text-xs text-slate-400">3 days ago</p>
+                            </div>
+                            <span class="text-xs font-bold text-primary">Live</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full mt-8 py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">
+                        View All Projects
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <button
+                    class="p-6 bg-white dark:bg-sidebar-dark rounded-DEFAULT custom-shadow flex flex-col items-center group transition-transform hover:-translate-y-1">
+                    <span class="material-icons-outlined text-card-blue text-3xl mb-2">add_circle_outline</span>
+                    <span class="text-sm font-bold text-background-dark dark:text-white">Add Project</span>
+                </button>
+                <button
+                    class="p-6 bg-white dark:bg-sidebar-dark rounded-DEFAULT custom-shadow flex flex-col items-center group transition-transform hover:-translate-y-1">
+                    <span class="material-icons-outlined text-card-yellow text-3xl mb-2">edit</span>
+                    <span class="text-sm font-bold text-background-dark dark:text-white">Edit About</span>
+                </button>
+                <button
+                    class="p-6 bg-white dark:bg-sidebar-dark rounded-DEFAULT custom-shadow flex flex-col items-center group transition-transform hover:-translate-y-1">
+                    <span class="material-icons-outlined text-card-pink text-3xl mb-2">reviews</span>
+                    <span class="text-sm font-bold text-background-dark dark:text-white">Review Feedback</span>
+                </button>
+                <button
+                    class="p-6 bg-white dark:bg-sidebar-dark rounded-DEFAULT custom-shadow flex flex-col items-center group transition-transform hover:-translate-y-1">
+                    <span class="material-icons-outlined text-slate-400 text-3xl mb-2">share</span>
+                    <span class="text-sm font-bold text-background-dark dark:text-white">Share Profile</span>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="Assets/Js/admin.js"></script>
+</body>
+
+</html>

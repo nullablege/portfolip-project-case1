@@ -1,0 +1,56 @@
+@model ResumeProjectDemoNight.Entities.Stat
+
+<div class="max-w-2xl mx-auto">
+    <div class="bg-white dark:bg-sidebar-dark rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
+        <form method="post" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Başlık</label>
+                <input type="text" asp-for="Title"
+                       class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                       placeholder="Örn: Tamamlanan Proje, Mutlu Müşteri, Yıllık Deneyim" required />
+                <p class="text-xs text-slate-400 mt-1">İstatistiğin ne hakkında olduğunu belirtin</p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Değer</label>
+                <input type="text" asp-for="Value"
+                       class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                       placeholder="Örn: 150+, 5 Yıl, 98%" required />
+                <p class="text-xs text-slate-400 mt-1">Sayısal değer veya metin (+ işareti, % işareti ekleyebilirsiniz)</p>
+            </div>
+
+            <div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="material-icons text-4xl opacity-80">analytics</span>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1">Önizleme</h4>
+                    <div class="bg-gradient-to-br from-primary to-card-blue p-4 rounded-lg text-white">
+                        <h3 class="text-3xl font-bold mb-1" id="preview-value">150+</h3>
+                        <p class="text-white/80 text-sm" id="preview-title">Tamamlanan Proje</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4 pt-4">
+                <button type="submit"
+                        class="flex-1 bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all">
+                    Kaydet
+                </button>
+                <a asp-action="Index"
+                   class="flex-1 text-center bg-slate-200 dark:bg-slate-700 text-background-dark dark:text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-all">
+                    İptal
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.querySelector('input[name="Value"]')?.addEventListener('input', function(e) {
+        document.getElementById('preview-value').textContent = e.target.value || '150+';
+    });
+    document.querySelector('input[name="Title"]')?.addEventListener('input', function(e) {
+        document.getElementById('preview-title').textContent = e.target.value || 'Tamamlanan Proje';
+    });
+</script>

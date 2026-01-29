@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Messages - Bolby Admin</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <link rel="stylesheet" href="Assets/Css/style.css">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <script src="Assets/Js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark transition-colors duration-300">
+
+    <div id="sidebar-overlay" class="sidebar-overlay lg:hidden"></div>
+
+    <div class="flex min-h-screen">
+        <aside id="sidebar"
+            class="w-64 bg-sidebar-dark text-white fixed h-full z-50 flex flex-col justify-between py-8 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-xl">
+            <div>
+                <div class="px-8 mb-12">
+                    <a href="index.html" class="flex items-center">
+                        <img src="Assets/Images/logo.svg" alt="Bolby" class="h-8 mr-2" />
+                    </a>
+                </div>
+                <nav class="space-y-1">
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="index.html">
+                        <span class="material-icons-outlined mr-4">grid_view</span>
+                        <span class="font-medium">Dashboard</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="about.html">
+                        <span class="material-icons-outlined mr-4">person</span>
+                        <span class="font-medium">About</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="services.html">
+                        <span class="material-icons-outlined mr-4">layers</span>
+                        <span class="font-medium">Services</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="experience.html">
+                        <span class="material-icons-outlined mr-4">school</span>
+                        <span class="font-medium">Experience</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white/80 hover:text-card-yellow transition-colors group"
+                        href="works.html">
+                        <span class="material-icons-outlined mr-4">work_outline</span>
+                        <span class="font-medium">Works</span>
+                    </a>
+                    <a class="flex items-center px-8 py-3 text-white sidebar-active hover:text-card-yellow transition-colors group"
+                        href="contact.html">
+                        <span class="material-icons-outlined mr-4">chat</span>
+                        <span class="font-medium">Contact</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="px-8 text-xs text-white/40">
+                © 2023 Bolby Template.
+            </div>
+        </aside>
+
+        <main class="flex-1 w-full lg:ml-64 p-4 md:p-8 lg:p-12 transition-all duration-300">
+            <header class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+                <div class="flex items-center w-full md:w-auto">
+                    <button id="sidebar-toggle"
+                        class="lg:hidden p-2 mr-4 text-slate-500 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                        <span class="material-icons-outlined text-3xl">menu</span>
+                    </button>
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-background-dark dark:text-white">Messages &amp;
+                            Inquiries</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mt-1 text-sm md:text-base">Manage incoming messages
+                            from the contact form</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 w-full md:w-auto justify-end">
+                    <button
+                        class="p-2 rounded-full bg-white dark:bg-sidebar-dark custom-shadow text-slate-600 dark:text-white hover:text-primary transition-all"
+                        onclick="document.documentElement.classList.toggle('dark')">
+                        <span class="material-icons-outlined">dark_mode</span>
+                    </button>
+                    <div class="relative">
+                        <button
+                            class="p-2 rounded-full bg-white dark:bg-sidebar-dark custom-shadow text-slate-600 dark:text-white hover:text-primary transition-all">
+                            <span class="material-icons-outlined">notifications</span>
+                            <span
+                                class="absolute top-0 right-0 h-3 w-3 bg-primary rounded-full border-2 border-white dark:border-sidebar-dark"></span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div
+                class="bg-white dark:bg-sidebar-dark rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+                    <div class="flex items-center gap-2">
+                        <button class="px-4 py-2 bg-primary/10 text-primary rounded-full font-bold text-sm">All
+                            Messages</button>
+                        <button
+                            class="px-4 py-2 text-slate-500 hover:text-primary transition-colors font-medium text-sm">Unread</button>
+                        <button
+                            class="px-4 py-2 text-slate-500 hover:text-primary transition-colors font-medium text-sm">Archived</button>
+                    </div>
+                    <div class="relative w-full md:w-64">
+                        <span
+                            class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                        <input type="text" placeholder="Search messages..."
+                            class="w-full pl-10 pr-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white text-sm">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="border-b border-slate-100 dark:border-slate-700 text-slate-400 uppercase text-xs tracking-wider">
+                                <th class="pb-4 font-medium px-4 w-10">
+                                    <input type="checkbox"
+                                        class="rounded border-slate-300 text-primary focus:ring-primary">
+                                </th>
+                                <th class="pb-4 font-medium px-4">Make as Read</th> 
+                                <th class="pb-4 font-medium px-4">Sender</th>
+                                <th class="pb-4 font-medium px-4">Subject</th>
+                                <th class="pb-4 font-medium px-4">Date</th>
+                                <th class="pb-4 font-medium px-4 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-50 dark:divide-slate-700/50">
+                            <tr
+                                class="group hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer bg-primary/5">
+                                <td class="py-4 px-4">
+                                    <input type="checkbox"
+                                        class="rounded border-slate-300 text-primary focus:ring-primary">
+                                </td>
+                                <td class="py-4 px-4">
+                                    <button class="text-primary hover:text-primary/80 transition-colors"
+                                        title="Mark as Read">
+                                        <span class="material-icons text-sm">mark_email_read</span>
+                                    </button>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-card-blue text-white flex items-center justify-center font-bold text-xs">
+                                            JD</div>
+                                        <div>
+                                            <p class="font-bold text-background-dark dark:text-white text-sm">John Doe
+                                            </p>
+                                            <p class="text-xs text-slate-400">john@example.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <p class="font-bold text-background-dark dark:text-white text-sm">Project Inquiry:
+                                        E-commerce Site</p>
+                                    <p class="text-xs text-slate-500 max-w-xs truncate">Hi, I'm interested in hiring you
+                                        for a new e-commerce project...</p>
+                                </td>
+                                <td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">Today, 10:30 AM</td>
+                                <td class="py-4 px-4 text-right">
+                                    <button class="p-2 text-slate-400 hover:text-primary transition-colors"
+                                        title="Reply">
+                                        <span class="material-icons text-sm">reply</span>
+                                    </button>
+                                    <button class="p-2 text-slate-400 hover:text-red-500 transition-colors"
+                                        title="Delete">
+                                        <span class="material-icons text-sm">delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr
+                                class="group hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+                                <td class="py-4 px-4">
+                                    <input type="checkbox"
+                                        class="rounded border-slate-300 text-primary focus:ring-primary">
+                                </td>
+                                <td class="py-4 px-4">
+                                    <button class="text-slate-400 hover:text-primary transition-colors"
+                                        title="Mark as Unread">
+                                        <span class="material-icons text-sm">email</span>
+                                    </button>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-card-yellow text-slate-800 flex items-center justify-center font-bold text-xs">
+                                            AS</div>
+                                        <div>
+                                            <p class="font-medium text-background-dark dark:text-white text-sm">Alice
+                                                Smith</p>
+                                            <p class="text-xs text-slate-400">alice@test.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <p class="font-medium text-background-dark dark:text-white text-sm">Freelance
+                                        Opportunity</p>
+                                    <p class="text-xs text-slate-500 max-w-xs truncate">Are you available for a contract
+                                        work starting next month?</p>
+                                </td>
+                                <td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">Yesterday</td>
+                                <td class="py-4 px-4 text-right">
+                                    <button class="p-2 text-slate-400 hover:text-primary transition-colors"
+                                        title="Reply">
+                                        <span class="material-icons text-sm">reply</span>
+                                    </button>
+                                    <button class="p-2 text-slate-400 hover:text-red-500 transition-colors"
+                                        title="Delete">
+                                        <span class="material-icons text-sm">delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr
+                                class="group hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+                                <td class="py-4 px-4">
+                                    <input type="checkbox"
+                                        class="rounded border-slate-300 text-primary focus:ring-primary">
+                                </td>
+                                <td class="py-4 px-4">
+                                    <button class="text-slate-400 hover:text-primary transition-colors"
+                                        title="Mark as Unread">
+                                        <span class="material-icons text-sm">email</span>
+                                    </button>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-card-pink text-white flex items-center justify-center font-bold text-xs">
+                                            MP</div>
+                                        <div>
+                                            <p class="font-medium text-background-dark dark:text-white text-sm">Mike
+                                                Powell</p>
+                                            <p class="text-xs text-slate-400">mike@studio.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <p class="font-medium text-background-dark dark:text-white text-sm">Question about
+                                        pricing</p>
+                                    <p class="text-xs text-slate-500 max-w-xs truncate">Hi, I saw your pricing plans but
+                                        I have a custom request...</p>
+                                </td>
+                                <td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">Jan 28, 2024</td>
+                                <td class="py-4 px-4 text-right">
+                                    <button class="p-2 text-slate-400 hover:text-primary transition-colors"
+                                        title="Reply">
+                                        <span class="material-icons text-sm">reply</span>
+                                    </button>
+                                    <button class="p-2 text-slate-400 hover:text-red-500 transition-colors"
+                                        title="Delete">
+                                        <span class="material-icons text-sm">delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div
+                    class="px-8 py-6 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/20">
+                    <p class="text-xs text-slate-400">Showing 1-3 of 12 messages</p>
+                    <div class="flex gap-2">
+                        <button
+                            class="p-2 rounded-lg bg-white dark:bg-sidebar-dark border border-slate-200 dark:border-slate-700 text-slate-500 hover:border-primary hover:text-primary transition-colors disabled:opacity-50">
+                            <span class="material-icons text-sm">chevron_left</span>
+                        </button>
+                        <button
+                            class="p-2 rounded-lg bg-white dark:bg-sidebar-dark border border-slate-200 dark:border-slate-700 text-slate-500 hover:border-primary hover:text-primary transition-colors">
+                            <span class="material-icons text-sm">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="Assets/Js/admin.js"></script>
+</body>
+
+</html>

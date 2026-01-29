@@ -1,0 +1,120 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-10">
+    <div class="bg-card-blue p-8 rounded-DEFAULT text-white custom-shadow relative overflow-hidden group">
+        <div class="relative z-10">
+            <div class="flex items-center justify-between mb-4">
+                <span class="material-icons-outlined text-4xl opacity-80">visibility</span>
+                <span class="text-xs font-bold px-2 py-1 bg-white/20 rounded-full">Toplam</span>
+            </div>
+            <h3 class="text-4xl font-bold mb-1">@ViewBag.TotalProjects</h3>
+            <p class="text-white/80 font-medium">Toplam Proje</p>
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-white/10 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
+    </div>
+
+    <div class="bg-card-yellow p-8 rounded-DEFAULT text-background-dark custom-shadow relative overflow-hidden group">
+        <div class="relative z-10">
+            <div class="flex items-center justify-between mb-4">
+                <span class="material-icons-outlined text-4xl opacity-80">rocket_launch</span>
+                <span class="text-xs font-bold px-2 py-1 bg-black/10 rounded-full">@ViewBag.ActiveProjects Aktif</span>
+            </div>
+            <h3 class="text-4xl font-bold mb-1">@ViewBag.TotalProjects</h3>
+            <p class="font-medium opacity-80">Projeler</p>
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-black/5 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
+    </div>
+
+    <div class="bg-card-pink p-8 rounded-DEFAULT text-white custom-shadow relative overflow-hidden group">
+        <div class="relative z-10">
+            <div class="flex items-center justify-between mb-4">
+                <span class="material-icons-outlined text-4xl opacity-80">mail_outline</span>
+                <span class="text-xs font-bold px-2 py-1 bg-white/20 rounded-full">@ViewBag.UnreadMessages Yeni</span>
+            </div>
+            <h3 class="text-4xl font-bold mb-1">@ViewBag.TotalMessages</h3>
+            <p class="text-white/80 font-medium">Mesajlar</p>
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-white/10 rounded-full transition-transform group-hover:scale-150 duration-500"></div>
+    </div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+    <div class="lg:col-span-2 bg-white dark:bg-sidebar-dark p-8 rounded-DEFAULT custom-shadow">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <h4 class="text-xl font-bold text-background-dark dark:text-white">İstatistikler</h4>
+        </div>
+        <div class="space-y-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-card-blue/10 rounded-xl flex items-center justify-center">
+                        <span class="material-icons-outlined text-card-blue">layers</span>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-background-dark dark:text-white">Hizmetler</p>
+                        <p class="text-xs text-slate-400">Aktif hizmet sayısı</p>
+                    </div>
+                </div>
+                <span class="text-lg font-bold text-primary">@ViewBag.TotalServices</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-card-yellow/10 rounded-xl flex items-center justify-center">
+                        <span class="material-icons-outlined text-card-yellow">school</span>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-background-dark dark:text-white">Deneyimler</p>
+                        <p class="text-xs text-slate-400">Toplam deneyim kaydı</p>
+                    </div>
+                </div>
+                <span class="text-lg font-bold text-primary">@ViewBag.TotalExperiences</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-card-pink/10 rounded-xl flex items-center justify-center">
+                        <span class="material-icons-outlined text-card-pink">code</span>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-background-dark dark:text-white">Yetenekler</p>
+                        <p class="text-xs text-slate-400">Kayıtlı yetenek sayısı</p>
+                    </div>
+                </div>
+                <span class="text-lg font-bold text-primary">@ViewBag.TotalSkills</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                        <span class="material-icons-outlined text-primary">reviews</span>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-background-dark dark:text-white">Referanslar</p>
+                        <p class="text-xs text-slate-400">Müşteri yorumları</p>
+                    </div>
+                </div>
+                <span class="text-lg font-bold text-primary">@ViewBag.TotalTestimonials</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white dark:bg-sidebar-dark p-8 rounded-DEFAULT custom-shadow">
+        <h4 class="text-xl font-bold text-background-dark dark:text-white mb-6">Hızlı İşlemler</h4>
+        <div class="space-y-4">
+            <a asp-area="Admin" asp-controller="Portfolio" asp-action="CreatePortfolio" class="w-full p-4 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center gap-3 transition-colors group">
+                <span class="material-icons-outlined text-primary">add_circle_outline</span>
+                <span class="text-sm font-bold text-primary">Yeni Proje Ekle</span>
+            </a>
+            <a asp-area="Admin" asp-controller="Service" asp-action="Create" class="w-full p-4 bg-card-yellow/10 hover:bg-card-yellow/20 rounded-lg flex items-center gap-3 transition-colors group">
+                <span class="material-icons-outlined text-card-yellow">layers</span>
+                <span class="text-sm font-bold text-card-yellow">Hizmet Ekle</span>
+            </a>
+            <a asp-area="Admin" asp-controller="Message" asp-action="Index" class="w-full p-4 bg-card-pink/10 hover:bg-card-pink/20 rounded-lg flex items-center gap-3 transition-colors group">
+                <span class="material-icons-outlined text-card-pink">reviews</span>
+                <span class="text-sm font-bold text-card-pink">Mesajları Görüntüle</span>
+            </a>
+        </div>
+    </div>
+</div>

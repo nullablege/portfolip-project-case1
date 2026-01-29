@@ -1,0 +1,91 @@
+@model ResumeProjectDemoNight.Entities.Skill
+
+<div class="max-w-2xl mx-auto">
+    <div class="bg-white dark:bg-sidebar-dark rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
+        <form method="post" class="space-y-6">
+            <input type="hidden" asp-for="SkillId" />
+
+            <div>
+                <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Yetenek Adı</label>
+                <input type="text" asp-for="SkillName"
+                       class="w-full px-5 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                       placeholder="Örn: C#, JavaScript, Python" required />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Yüzde (%)</label>
+                    <div class="space-y-3">
+                        <input type="range" id="skillRange" asp-for="SkillPercent" min="0" max="100"
+                               class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-primary"
+                               oninput="document.getElementById('percentValue').textContent = this.value; updatePreview();" />
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-slate-400">0%</span>
+                            <span class="text-2xl font-bold text-primary" id="percentValue">@Model.SkillPercent</span>
+                            <span class="text-xs text-slate-400">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Renk</label>
+                    <div class="flex items-center gap-3">
+                        <input type="color" id="colorPicker" asp-for="SkillColor"
+                               class="w-16 h-12 rounded-lg cursor-pointer border-2 border-slate-300 dark:border-slate-600"
+                               oninput="updatePreview();" />
+                        <input type="text" id="colorText" asp-for="SkillColor"
+                               class="flex-1 px-4 py-3 rounded-xl bg-background-light dark:bg-background-dark border-none focus:ring-2 focus:ring-primary dark:text-white"
+                               placeholder="#6C6CE5"
+                               oninput="document.getElementById('colorPicker').value = this.value; updatePreview();" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+                <div class="flex gap-3">
+                    <span class="material-icons text-blue-500">info</span>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">Canlı Önizleme</h4>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-bold text-background-dark dark:text-white" id="previewName">@Model.SkillName</span>
+                                <span class="text-xl font-bold" id="previewPercent" style="color: @Model.SkillColor">@Model.SkillPercent%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+                                <div id="previewBar" class="h-full rounded-full transition-all duration-300" style="width: @Model.SkillPercent%; background-color: @Model.SkillColor"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4 pt-4">
+                <button type="submit"
+                        class="flex-1 bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all">
+                    Güncelle
+                </button>
+                <a asp-action="Index"
+                   class="flex-1 text-center bg-slate-200 dark:bg-slate-700 text-background-dark dark:text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-all">
+                    İptal
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function updatePreview() {
+        const name = document.querySelector('input[name="SkillName"]').value || '@Model.SkillName';
+        const percent = document.getElementById('skillRange').value;
+        const color = document.getElementById('colorPicker').value;
+        
+        document.getElementById('previewName').textContent = name;
+        document.getElementById('previewPercent').textContent = percent + '%';
+        document.getElementById('previewPercent').style.color = color;
+        document.getElementById('previewBar').style.width = percent + '%';
+        document.getElementById('previewBar').style.backgroundColor = color;
+        document.getElementById('colorText').value = color;
+    }
+
+    document.querySelector('input[name="SkillName"]')?.addEventListener('input', updatePreview);
+</script>
